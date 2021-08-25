@@ -8,16 +8,11 @@ public class TrackCoach implements Coach {
 		
 	}
 	
-	
 	public TrackCoach(com.luv2code.springdemo.FortuneService fortuneService) {
 		super();
 		FortuneService = fortuneService;
 	}
 	
-	
-	
-	
-
 	@Override
 	public String getDailyWorkout() {
 		
@@ -29,5 +24,15 @@ public class TrackCoach implements Coach {
 		
 		return "Just Do It: " + FortuneService.getFortune();
 	}
+	
+	//add an init method
+		public void doMyStartupStuff() {
+			System.out.println("TrackCoach: inside method doMyStartupStuff");
+		}
+	
+	// add a destroy method
+		public void doMyCleanupStuffYoYo() {
+			System.out.println("TrackCoach: inside method doMyCleanupStuffYoYo");
+		}
 
 }

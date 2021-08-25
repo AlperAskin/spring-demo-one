@@ -7,11 +7,6 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- load the properties file: sport.properties -->
-	<context:property-placeholder location="classpath:sport.properties"/>
-
-
-
     <!-- Define your beans here -->
     
     <!-- Define the dependency -->
@@ -19,33 +14,14 @@
     	class="com.luv2code.springdemo.HappyFortuneService">
     	</bean>
     
-    
-    
     <bean id="myCoach"
-    	class="com.luv2code.springdemo.TrackCoach">
+    	class="com.luv2code.springdemo.TrackCoach"
+    	init-method="doMyStartupStuff"
+    	destroy-method="doMyCleanupStuffYoYo"> 
     	
     	<!-- set up constructor injection -->
     	<constructor-arg ref="myFortune"> </constructor-arg>
-    	
-    	
-    </bean>
-    
-    <bean id="myCricketCoach"
-    class="com.luv2code.springdemo.CricketCoach"> 
-    
-    <!-- set up setter injection -->
-   
-    <property name="FortuneService" ref="myFortune" />
-    
-    <!-- inject literal values -->
-    
-    <property name="emailAddress" value="${foo.email}"></property>
-    <property name="team" value="${foo.team}"></property>
-    
-    </bean>
-    
-    
- 	
+     </bean>
     
 </beans>
 
